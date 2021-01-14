@@ -1,32 +1,32 @@
 import React from "react"
-import Users from "./pages/Users"
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+} from "react-router-dom"
+import "fontsource-roboto"
+import Button from '@material-ui/core/Button'
+import Nav from "./components/Nav"
+import Brand from "./components/Brand"
 
 class App extends React.Component {
-  
   constructor(){
     super()
-    this.state = {
-      users: [
-        {
-          firstName: "Karel",
-          lastName: "Mensah",
-          department: "Kuulpeeps"
-        },
-        {
-          firstName: "Jane",
-          lastName: "Foster",
-          department: "Kuulpeeps"
-        }
-      ],
-    }
+    this.state = {}
   }
 
   render(){
-    return(
-     <div>
-       <Users />
-     </div>
-    )
+    let { users } = this.state
+
+        return(
+          <Router>
+            <div>
+              <Brand />
+              <Nav />
+            </div>
+        </Router>
+        )
   }
 }
 
