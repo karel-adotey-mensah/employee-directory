@@ -1,4 +1,5 @@
 import React from "react"
+import SearchAndFilter from "../components/SearchAndFilter"
 import ShortCardGrid from "../components/ShortCardGrid"
 const axios = require('axios')
 
@@ -16,13 +17,14 @@ class Home extends React.Component {
             url: "http://localhost:4000/api/employees"
           })
         const { data } = response.data
-        this.setState(() => {return {employees: data}})
+        this.setState(() => ({employees: data}))
         console.log(this.state.employees)
     }
     
     render(){
         return(
             <div>
+                <SearchAndFilter />
                 <ShortCardGrid />
             </div>
         )

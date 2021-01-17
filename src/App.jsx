@@ -7,6 +7,7 @@ import {
 } from "react-router-dom"
 import "fontsource-roboto"
 import Button from '@material-ui/core/Button'
+
 import Nav from "./components/Nav"
 import Brand from "./components/Brand"
 import Home from "./pages/Home"
@@ -21,8 +22,7 @@ class App extends React.Component {
   }
 
   render(){
-    let { users } = this.state
-
+    
         return(
           <Router>
             <div>

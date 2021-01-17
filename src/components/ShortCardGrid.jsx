@@ -1,18 +1,27 @@
 import React from "react"
 import Grid from '@material-ui/core/Grid'
+import Paper from '@material-ui/core/Paper'
 import ShortCard from "./ShortCard"
 
-function ShortCardGrid(){
-    const parentPadding = {
-        paddingTop: 34,
-        paddingBottom: 60,
-        paddingLeft: 40,
-        paddingRight: 40
+const ShortCardGrid = () => {
+    const parentStyles = {
+        padding: 20,
+        marginTop: 20,
+        marginBottom: 20,
+        marginLeft: 40,
+        marginRight: 40,
     }
     
     return(
-        <div style={parentPadding}>
+        <Paper variant="outlined" children={
+            <div style={parentStyles} className="scroll">
             <Grid container spacing={3} justify="center" alignItems="center">
+                <ShortCard />
+                <ShortCard />
+                <ShortCard />
+                <ShortCard />
+                <ShortCard />
+                <ShortCard />
                 <ShortCard />
                 <ShortCard />
                 <ShortCard />
@@ -21,6 +30,7 @@ function ShortCardGrid(){
                 <ShortCard />
             </Grid>
         </div>
+        }/>
     )
 }
 

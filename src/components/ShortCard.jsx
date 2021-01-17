@@ -2,6 +2,7 @@ import React from "react"
 import Avatar from '@material-ui/core/Avatar'
 import Grid from '@material-ui/core/Grid'
 import Paper from '@material-ui/core/Paper'
+import Typography from '@material-ui/core/Typography'
 import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles((theme) => ({
@@ -23,9 +24,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-function ShortCard(){
+const ShortCard = (props) => {
     const classes = useStyles()
-    
+
     return(
         <Grid item md={3}>
             <Paper variant="outlined" square children={
@@ -33,8 +34,12 @@ function ShortCard(){
                     <div className={classes.root}>
                         <Avatar alt="Karel Mensah" src="" className={classes.large}/>
                     </div>
-                    <h1>name: Karel Mensah</h1>
-                    <h1>department: Kuulpeeps</h1>
+                    <Typography variant="subtitle1" align="center">
+                        Kuulpeeps
+                    </Typography>
+                    <Typography variant="subtitle2" align="center">
+                        Karel Mensah
+                    </Typography>
                 </div>
             }/>
         </Grid>
