@@ -88,19 +88,19 @@ function Nav() {
             <Typography className={classes.title} noWrap>
               <ButtonGroup variant="text" size="large" color="default" fullWidth={true}>
                 <Button component={RouterLink} to="/">
-                  HOME
+                  EMPLOYEES
                 </Button>
                 
-                <Button component={RouterLink} to="/admin">
-                  ADMIN
+                <Button component={RouterLink} to="/contracts">
+                  CONTRACTS
                 </Button>
                 
-                <Button component={RouterLink} to="/gallery">
-                  GALLERY
+                <Button component={RouterLink} to="/leave-requests">
+                  LEAVE REQUESTS
                 </Button>
 
-                <Button component={RouterLink} to="/careers">
-                  JOIN THE TEAM
+                <Button component={RouterLink} to="/add-employee">
+                  ADD EMPLOYEE
                 </Button>
               </ButtonGroup>
             </Typography>

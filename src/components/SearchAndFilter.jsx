@@ -1,4 +1,5 @@
 import React from "react"
+import { useState } from "react"
 import Box from '@material-ui/core/Box'
 import Button from '@material-ui/core/Button'
 import ButtonGroup from '@material-ui/core/ButtonGroup'
@@ -64,9 +65,9 @@ const useStyles = makeStyles((theme) => ({
       },
   }))
 
-const SearchAndFilter = () => {
+const SearchAndFilter = (props) => {
     const classes = useStyles()
-
+    
     return(
         <div className={classes.root}>
           {/* <Paper elevation={0}> */}
@@ -78,38 +79,38 @@ const SearchAndFilter = () => {
                       id="active-department"
                       defaultValue="allDepartments"
                       variant="outlined"
-                      // value={age}
-                      // onChange={handleChange}
+                      value={props.filterValue}
+                      onChange={props.changeFilterValue}
                     >
                       <MenuItem value={"allDepartments"}>
-                      <Typography variant="h4">
-                                    E C H O  H O U S E 
-                      </Typography>
+                        <Typography variant="h4">
+                                      E C H O  H O U S E 
+                        </Typography>
                       </MenuItem>
-                      <MenuItem value={"projects"}>
-                      <Typography variant="h4">
-                                    P R O J E C T S
-                      </Typography>
+                      <MenuItem value={"Admin"}>
+                        <Typography variant="h4">
+                                      A D M I N
+                        </Typography>
                       </MenuItem>
-                      <MenuItem value={"kuulpeeps"}>
-                      <Typography variant="h4">
-                                    K U U L P E E P S 
-                      </Typography>
+                      <MenuItem value={"Digit"}>
+                        <Typography variant="h4">
+                                      D I G I T
+                        </Typography>
                       </MenuItem>
-                      <MenuItem value={"digit"}>
-                      <Typography variant="h4">
-                                    D I G I T
-                      </Typography>
+                      <MenuItem value={"Kuulpeeps"}>
+                        <Typography variant="h4">
+                                      K U U L P E E P S 
+                        </Typography>
                       </MenuItem>
-                      <MenuItem value={"storyBoard"}>
-                      <Typography variant="h4">
-                                    S T O R Y B O A R D
-                      </Typography>
+                      <MenuItem value={"Projects"}>
+                        <Typography variant="h4">
+                                      P R O J E C T S
+                        </Typography>
                       </MenuItem>
-                      <MenuItem value={"admin"}>
-                      <Typography variant="h4">
-                                    A D M I N
-                      </Typography>
+                      <MenuItem value={"StoryBoard"}>
+                        <Typography variant="h4">
+                                      S T O R Y B O A R D
+                        </Typography>
                       </MenuItem>
                     </Select>
                   </FormControl>

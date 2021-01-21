@@ -29,15 +29,15 @@ class App extends React.Component {
               <Brand />
               <Nav />
               <Switch>
-                <Route path="/admin">
+                <Route path="/contracts">
                   <Admin />
                 </Route>
 
-                <Route path="/gallery">
+                <Route path="/leave-requests">
                   <Gallery />
                 </Route>
 
-                <Route path="/careers">
+                <Route path="/add-employee">
                   <Careers />
                 </Route>
 

@@ -3,23 +3,14 @@ import Box from '@material-ui/core/Box'
 import Grid from '@material-ui/core/Grid'
 import ShortCard from "./ShortCard"
 
-const ShortCardGrid = () => {
+const ShortCardGrid = (props) => {
 
     return(
         <Box mx={16}>
                 <Grid container spacing={3} justify="center" alignItems="center">
-                    <ShortCard />
-                    <ShortCard />
-                    <ShortCard />
-                    <ShortCard />
-                    <ShortCard />
-                    <ShortCard />
-                    <ShortCard />
-                    <ShortCard />
-                    <ShortCard />
-                    <ShortCard />
-                    <ShortCard />
-                    <ShortCard />
+                    {props.employeeData.map(
+                        individualData => <ShortCard employeeData={individualData} key={individualData._id}/>
+                        )}
                 </Grid>           
         </Box>
     )

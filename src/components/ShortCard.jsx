@@ -32,13 +32,13 @@ const ShortCard = (props) => {
             <Paper variant="outlined" square children={
                 <div>
                     <div className={classes.root}>
-                        <Avatar alt="Karel Mensah" src="" className={classes.large}/>
+                        <Avatar alt={props.employeeData.firstName + " " + props.employeeData.lastName} src="" className={classes.large}/>
                     </div>
                     <Typography variant="subtitle1" align="center">
-                        Kuulpeeps
+                      {props.employeeData.department}
                     </Typography>
                     <Typography variant="subtitle2" align="center">
-                        Karel Mensah
+                      {props.employeeData.firstName + " " + props.employeeData.lastName}
                     </Typography>
                 </div>
             }/>
