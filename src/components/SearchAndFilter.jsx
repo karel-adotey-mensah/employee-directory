@@ -1,11 +1,7 @@
 import React from "react"
-import { useState } from "react"
 import Box from '@material-ui/core/Box'
-import Button from '@material-ui/core/Button'
 import ButtonGroup from '@material-ui/core/ButtonGroup'
 import InputBase from '@material-ui/core/InputBase'
-import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown'
-import Paper from '@material-ui/core/Paper'
 import SearchIcon from '@material-ui/icons/Search'
 import Typography from '@material-ui/core/Typography'
 import { fade, makeStyles } from '@material-ui/core/styles'

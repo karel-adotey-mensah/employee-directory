@@ -6,7 +6,7 @@ import ShortCard from "./ShortCard"
 const ShortCardGrid = (props) => {
 
     return(
-        <Box mx={16}>
+        <Box mx={16} mb={10}>
                 <Grid container spacing={3} justify="center" alignItems="center">
                     {props.employeeData.map(
                         individualData => <ShortCard employeeData={individualData} key={individualData._id}/>

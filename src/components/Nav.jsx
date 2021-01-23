@@ -65,7 +65,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-function Nav() {
+const Nav = () => {
     const classes = useStyles()
     const isMobile = useMediaQuery('(max-width:600px)')
 

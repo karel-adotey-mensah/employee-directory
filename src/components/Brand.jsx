@@ -3,7 +3,7 @@ import Typography from '@material-ui/core/Typography'
 import { spacing } from '@material-ui/system'
 import Box from '@material-ui/core/Box'
 
-function Brand() {
+const Brand = () => {
     return(
         <div>
             <Typography variant="h1" align="center">

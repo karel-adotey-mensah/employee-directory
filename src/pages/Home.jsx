@@ -1,4 +1,5 @@
 import React from "react"
+import Footer from "../components/Footer"
 import SearchAndFilter from "../components/SearchAndFilter"
 import ShortCardGrid from "../components/ShortCardGrid"
 const axios = require('axios')
@@ -70,6 +71,7 @@ class Home extends React.Component {
                     changeSearchValue={this.handleChange}
                     />
                 <ShortCardGrid employeeData={this.state.employeeData}/>
+                <Footer />
             </div>
         )
     }
