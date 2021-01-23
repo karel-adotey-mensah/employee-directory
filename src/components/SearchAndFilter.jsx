@@ -77,6 +77,7 @@ const SearchAndFilter = (props) => {
                     <Select
                       labelId="active-department-label"
                       id="active-department"
+                      name="filter"
                       defaultValue="allDepartments"
                       variant="outlined"
                       value={props.filterValue}
@@ -122,11 +123,14 @@ const SearchAndFilter = (props) => {
                         </div>
                         <InputBase
                         placeholder="Search…"
+                        name="search"
                         classes={{
                             root: classes.inputRoot,
                             input: classes.inputInput,
                         }}
                         inputProps={{ 'aria-label': 'search' }}
+                        value={props.searchValue}
+                        onChange={props.changeSearchValue}
                         />
                     </div>
                 </Box>
