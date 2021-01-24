@@ -80,32 +80,32 @@ const SearchAndFilter = (props) => {
                       onChange={props.changeFilterValue}
                     >
                       <MenuItem value={"allDepartments"}>
-                        <Typography variant="h4">
+                        <Typography variant="h6">
                                       E C H O  H O U S E 
                         </Typography>
                       </MenuItem>
                       <MenuItem value={"Admin"}>
-                        <Typography variant="h4">
+                        <Typography variant="h6">
                                       A D M I N
                         </Typography>
                       </MenuItem>
                       <MenuItem value={"Digit"}>
-                        <Typography variant="h4">
+                        <Typography variant="h6">
                                       D I G I T
                         </Typography>
                       </MenuItem>
                       <MenuItem value={"Kuulpeeps"}>
-                        <Typography variant="h4">
+                        <Typography variant="h6">
                                       K U U L P E E P S 
                         </Typography>
                       </MenuItem>
                       <MenuItem value={"Projects"}>
-                        <Typography variant="h4">
+                        <Typography variant="h6">
                                       P R O J E C T S
                         </Typography>
                       </MenuItem>
                       <MenuItem value={"StoryBoard"}>
-                        <Typography variant="h4">
+                        <Typography variant="h6">
                                       S T O R Y B O A R D
                         </Typography>
                       </MenuItem>

@@ -18,10 +18,17 @@ import Gallery from "./pages/Gallery"
 class App extends React.Component {
   constructor(){
     super()
-    this.state = {}
+    this.state = {
+      isLoggedIn: false
+    }
+  }
+
+  componentDidMount(){
+    this.setState(() => ({isLoggedIn: true}))
   }
 
   render(){
+    const { isLoggedIn } = this.state 
     
         return(
           <Router>
@@ -42,7 +49,7 @@ class App extends React.Component {
                 </Route>
 
                 <Route path="/">
-                  <Home />
+                  <Home isLoggedIn={isLoggedIn}/>
                 </Route>
               </Switch>
             </div>

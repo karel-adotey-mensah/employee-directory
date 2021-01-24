@@ -4,18 +4,18 @@ import Divider from '@material-ui/core/Divider'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 
-const Footer = () => {
+const Footer = (props) => {
         return(
             <Box width={1} textAlign="center">
                 <Divider />
-                <Box px={24} my={2}>
+                <Box px={24} mt={2} mb={4}>
                     <Grid
                     container
                     item
                     justify="center"
                     alignItems="center" >
                         <Grid item md={4} spacing={0} alignItems="center">
-                            <Typography variant="h2">2</Typography>
+                            <Typography variant="h2">{props.employeeCount}</Typography>
                             <Typography variant="caption">EMPLOYEES</Typography>
                         </Grid>
                         <Grid item md={4} spacing={0}>
