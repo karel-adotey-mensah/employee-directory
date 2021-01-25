@@ -81,32 +81,32 @@ const SearchAndFilter = (props) => {
                     >
                       <MenuItem value={"allDepartments"}>
                         <Typography variant="h6">
-                                      E C H O  H O U S E 
+                          ECHO HOUSE 
                         </Typography>
                       </MenuItem>
                       <MenuItem value={"Admin"}>
                         <Typography variant="h6">
-                                      A D M I N
+                          ADMIN
                         </Typography>
                       </MenuItem>
                       <MenuItem value={"Digit"}>
                         <Typography variant="h6">
-                                      D I G I T
+                          DIGIT
                         </Typography>
                       </MenuItem>
                       <MenuItem value={"Kuulpeeps"}>
                         <Typography variant="h6">
-                                      K U U L P E E P S 
+                          KUULPEEPS 
                         </Typography>
                       </MenuItem>
                       <MenuItem value={"Projects"}>
                         <Typography variant="h6">
-                                      P R O J E C T S
+                          PROJECTS
                         </Typography>
                       </MenuItem>
                       <MenuItem value={"StoryBoard"}>
                         <Typography variant="h6">
-                                      S T O R Y B O A R D
+                          STORY BOARD
                         </Typography>
                       </MenuItem>
                     </Select>

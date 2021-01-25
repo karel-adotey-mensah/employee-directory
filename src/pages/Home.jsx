@@ -1,5 +1,6 @@
 import React from "react"
 import Footer from "../components/Footer"
+import LoginSwitch from "../components/LoginSwitch"
 import SearchAndFilter from "../components/SearchAndFilter"
 import ShortCardGrid from "../components/ShortCardGrid"
 const axios = require('axios')
@@ -65,6 +66,7 @@ class Home extends React.Component {
 
         return(
             <div>
+                <LoginSwitch isLoggedIn={this.props.isLoggedIn}/>
                 <SearchAndFilter
                     filterValue={filterValue}
                     searchValue={searchValue}
