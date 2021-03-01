@@ -94,11 +94,11 @@ const Nav = () => {
               <Button component={RouterLink} to="/">
                 DIRECTORY
               </Button>
-              <Button component={RouterLink} to="/add-employee">
-                ADD EMPLOYEE
-              </Button>
-              <Button component={RouterLink} to="/login">
+              <Button component={RouterLink} to="/admin">
                 ADMIN
+              </Button>
+              <Button component={RouterLink} to="/create-employee">
+                ADD EMPLOYEE
               </Button>
             </ButtonGroup>
           </Typography>

@@ -5,6 +5,7 @@ import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
 import Paper from "@material-ui/core/Paper";
 import TextField from "@material-ui/core/TextField";
+import Form from "../global_components/Form";
 const axios = require("axios");
 
 const Login = () => {
@@ -39,8 +40,19 @@ const Login = () => {
         password: password,
       },
     });
-    console.log(response);
-    localStorage.setItem("adminKey", response.data.token);
+    if (response.data.data) {
+      const {
+        firstName,
+        lastName,
+        email: responseEmail,
+      } = response.data.data[0];
+
+      response.data.token &&
+        localStorage.setItem("adminKey", response.data.token);
+      localStorage.setItem("firstName", firstName);
+      localStorage.setItem("lastName", lastName);
+      localStorage.setItem("email", responseEmail);
+    }
     window.location.reload();
   };
 
@@ -55,63 +67,35 @@ const Login = () => {
     },
   });
 
+  const fieldMeta = [
+    {
+      label: "Email Address",
+      name: "email",
+      value: formik.values.email,
+      error: formik.touched.email && Boolean(formik.errors.email),
+      helperText: formik.touched.email && formik.errors.email,
+    },
+    {
+      isPassword: true,
+      label: "Password",
+      name: "password",
+      value: formik.values.password,
+      error: formik.touched.password && Boolean(formik.errors.password),
+      helperText: formik.touched.password && formik.errors.password,
+    },
+  ];
+
+  const buttonMeta = [{ text: "Log In", onClick: formik.handleSubmit }];
+
   return (
     <div>
-      <Box mx={52} mt={7}>
-        <Paper
-          variant="outlined"
-          square
-          children={
-            <Box py={8} px={8}>
-              <form onSubmit={formik.handleSubmit}>
-                <Box pb={2}>
-                  <TextField
-                    id="email"
-                    name="email"
-                    label="Email"
-                    variant="outlined"
-                    fullWidth
-                    size="small"
-                    value={formik.values.email}
-                    onChange={formik.handleChange}
-                    error={formik.touched.email && Boolean(formik.errors.email)}
-                    helperText={formik.touched.email && formik.errors.email}
-                  />
-                </Box>
-                <Box pb={2}>
-                  <TextField
-                    id="password"
-                    name="password"
-                    label="Password"
-                    variant="outlined"
-                    fullWidth
-                    size="small"
-                    type="password"
-                    value={formik.values.password}
-                    onChange={formik.handleChange}
-                    error={
-                      formik.touched.password && Boolean(formik.errors.password)
-                    }
-                    helperText={
-                      formik.touched.password && formik.errors.password
-                    }
-                  />
-                </Box>
-                <Box mt={2} mx={20}>
-                  <Button
-                    color="primary"
-                    variant="contained"
-                    type="submit"
-                    fullWidth
-                  >
-                    Log In
-                  </Button>
-                </Box>
-              </form>
-            </Box>
-          }
-        />
-      </Box>
+      <Form
+        // header="Login."
+        subheader="Log In For Full Access."
+        fieldMeta={fieldMeta}
+        buttonMeta={buttonMeta}
+        handleChange={formik.handleChange}
+      />
     </div>
   );
 };

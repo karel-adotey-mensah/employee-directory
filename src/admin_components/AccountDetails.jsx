@@ -2,28 +2,39 @@ import React, { useEffect, useState } from "react";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import Form from "../global_components/Form";
+import PasswordChanger from "./PasswordChanger";
 const axios = require("axios");
 
 const AccountDetails = () => {
-  const getAdminData = async () => {
-    const token = localStorage.getItem("adminKey");
-    const response = await axios({
-      method: "get",
-      url: "http://localhost:4000/api/admin",
-      headers: { Authorization: token },
-    });
-    // const { firstName, lastName, email } = response.data.data;
+  const firstName = localStorage.getItem("firstName");
+  const lastName = localStorage.getItem("lastName");
+  const email = localStorage.getItem("email");
+  const token = localStorage.getItem("adminKey");
 
-    return response;
-  };
+  const [adminData, setAdminData] = useState({
+    firstName: firstName,
+    lastName: lastName,
+    email: email,
+  });
+  const [isChangingPassword, setIsChangingPassword] = useState(false);
+  //   const getAdminData = async () => {
+  //     const response = await axios({
+  //       method: "get",
+  //       url: "http://localhost:4000/api/admin",
+  //       headers: { Authorization: token },
+  //     });
+  // const { firstName, lastName, email } = response.data.data;
+
+  //     return response;
+  //   };
 
   /* -------------------------------------------------------------------------- */
   /*          O B J E C T   V A L U E S   F O R   F O R M I K   H O O K         */
   /* -------------------------------------------------------------------------- */
   const initialValues = {
-    firstName: "Karel",
-    lastName: "Mensah",
-    email: "Karelmensah96@gmail.com",
+    firstName: adminData.firstName,
+    lastName: adminData.lastName,
+    email: adminData.email,
   };
   const validationSchema = yup.object({
     firstName: yup
@@ -44,19 +55,33 @@ const AccountDetails = () => {
   /*       S U B M I T    F U N C T I O N   F O R   F O R M I K   H O O K       */
   /* -------------------------------------------------------------------------- */
   const updateAdmin = async (values) => {
-    // const { email, password } = userInput;
-    // const response = await axios({
-    //   method: "post",
-    //   url: "http://localhost:4000/api/admin/login",
-    //   data: {
-    //     email: email.toLowerCase(),
-    //     password: password,
-    //   },
-    // });
-    // console.log(response);
-    // localStorage.setItem("adminKey", response.data.token);
-    // window.location.reload();
-    console.log(values);
+    const { firstName, lastName, email } = values;
+    const updatedAdmin = await axios({
+      method: "put",
+      url: "http://localhost:4000/api/admin",
+      headers: { Authorization: token },
+      data: {
+        firstName: firstName,
+        lastName: lastName,
+        email: email.toLowerCase(),
+      },
+    });
+
+    const {
+      firstName: updatedFirstName,
+      lastName: updatedLastName,
+      email: updatedEmail,
+    } = updatedAdmin.data.data[0];
+
+    localStorage.setItem("firstName", updatedFirstName);
+    localStorage.setItem("lastName", updatedLastName);
+    localStorage.setItem("email", updatedEmail);
+    localStorage.setItem("adminKey", updatedAdmin.data.token);
+    window.location.reload();
+  };
+
+  const changePassword = () => {
+    setIsChangingPassword(() => true);
   };
 
   const logOut = () => {
@@ -109,18 +134,23 @@ const AccountDetails = () => {
 
   const buttonMeta = [
     { text: "Update Details", onClick: formik.handleSubmit },
+    { text: "Change Password", onClick: changePassword },
     { text: "Log Out", onClick: logOut },
   ];
 
   return (
     <div>
-      <Form
-        header="A D M I N I S T R A T O R"
-        subheader="This information can be edited."
-        fieldMeta={fieldMeta}
-        buttonMeta={buttonMeta}
-        handleChange={formik.handleChange}
-      />
+      {!isChangingPassword ? (
+        <Form
+          subheader="Update Your Information."
+          //   subheader="This information can be edited."
+          fieldMeta={fieldMeta}
+          buttonMeta={buttonMeta}
+          handleChange={formik.handleChange}
+        />
+      ) : (
+        <PasswordChanger />
+      )}
     </div>
   );
 };

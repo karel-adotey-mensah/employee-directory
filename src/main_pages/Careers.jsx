@@ -8,7 +8,7 @@ const Careers = () => {
   useEffect(() => {
     const adminKey = localStorage.getItem("adminKey");
     if (!adminKey) {
-      history.push("/login");
+      history.push("/admin");
     }
   }, []);
 

@@ -12,7 +12,7 @@ import {
 
 const Form = (props) => {
   return (
-    <Box mx={32} my={6}>
+    <Box mx={48} my={8}>
       <Paper variant="outlined">
         <CardHeader
           align="center"
