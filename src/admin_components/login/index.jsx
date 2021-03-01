@@ -5,7 +5,7 @@ import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
 import Paper from "@material-ui/core/Paper";
 import TextField from "@material-ui/core/TextField";
-import Form from "../global_components/Form";
+import Form from "../../global_components/utils/Form";
 const axios = require("axios");
 
 const Login = () => {

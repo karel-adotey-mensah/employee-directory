@@ -1,8 +1,8 @@
 import React from "react";
-import Footer from "../home_components/Footer";
-import SearchAndFilter from "../home_components/SearchAndFilter";
-import ShortCardGrid from "../home_components/CardGrid";
-import Spinner from "../global_components/Spinner";
+import Carousel from "../../home_components/carousel";
+import Footer from "../../home_components/footer";
+import SearchAndFilter from "../../home_components/utils/SearchAndFilter";
+import Grid from "../../home_components/grid";
 const axios = require("axios");
 
 class Home extends React.Component {
@@ -82,17 +82,14 @@ class Home extends React.Component {
 
     return (
       <div>
+        <Carousel />
         <SearchAndFilter
           filterValue={filterValue}
           searchValue={searchValue}
           changeFilterValue={this.handleChange}
           changeSearchValue={this.handleChange}
         />
-        {isLoading ? (
-          <Spinner />
-        ) : (
-          <ShortCardGrid employeeData={queriedEmployeeData} />
-        )}
+        <Grid employeeData={queriedEmployeeData} isLoading={isLoading} />
         <Footer employeeCount={employeeData.length} />
       </div>
     );

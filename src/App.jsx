@@ -1,11 +1,11 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "fontsource-roboto";
-import Nav from "./global_components/Nav";
-import Brand from "./global_components/Brand";
-import Home from "./main_pages/Home";
-import Admin from "./main_pages/Admin";
-import Careers from "./main_pages/Careers";
+import Nav from "./global_components/theme/Nav";
+import Brand from "./global_components/theme/Brand";
+import Home from "./pages/home";
+import Admin from "./pages/admin";
+import Careers from "./pages/Careers";
 
 class App extends React.Component {
   constructor() {
@@ -30,9 +30,6 @@ class App extends React.Component {
           <Switch>
             <Route path="/admin">
               <Admin />
-            </Route>
-            <Route path="/create-employee">
-              <Careers />
             </Route>
             <Route path="/">
               <Home />

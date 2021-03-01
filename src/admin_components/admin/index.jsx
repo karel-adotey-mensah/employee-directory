@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useFormik } from "formik";
 import * as yup from "yup";
-import Form from "../global_components/Form";
+import Form from "../../global_components/utils/Form";
 import PasswordChanger from "./PasswordChanger";
 const axios = require("axios");
 

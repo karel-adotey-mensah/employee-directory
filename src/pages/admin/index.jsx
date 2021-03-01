@@ -1,6 +1,6 @@
 import React from "react";
-import Login from "../admin_components/Login";
-import AccountDetails from "../admin_components/AccountDetails";
+import Login from "../../admin_components/login";
+import AccountDetails from "../../admin_components/admin";
 
 const Admin = () => {
   const adminKey = localStorage.getItem("adminKey");

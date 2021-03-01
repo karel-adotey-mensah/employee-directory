@@ -97,9 +97,6 @@ const Nav = () => {
               <Button component={RouterLink} to="/admin">
                 ADMIN
               </Button>
-              <Button component={RouterLink} to="/create-employee">
-                ADD EMPLOYEE
-              </Button>
             </ButtonGroup>
           </Typography>
         </Toolbar>
