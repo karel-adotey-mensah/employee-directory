@@ -8,7 +8,7 @@ const Footer = (props) => {
   return (
     <Box width={1} textAlign="center">
       <Divider />
-      <Box px={24} mt={2} mb={4}>
+      <Box px={24} mt={2} pb={4}>
         <Grid container item justify="center" alignItems="center">
           <Grid item md={4} spacing={0} alignItems="center">
             <Typography variant="h2">{props.employeeCount}</Typography>
@@ -24,16 +24,6 @@ const Footer = (props) => {
           </Grid>
         </Grid>
       </Box>
-      {/* <Box mx={24}><Divider variant="middle"/></Box>
-                <Box my={2}>
-                    <Grid
-                    container
-                    item
-                    justify="center"
-                    alignItems="center" >
-                        Play for the name in front, and they'll remember the name at the back
-                    </Grid>
-                </Box> */}
     </Box>
   );
 };

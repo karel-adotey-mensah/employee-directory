@@ -36,7 +36,9 @@ const Form = (props) => {
                     variant="outlined"
                     error={item.error}
                     helperText={item.helperText}
-                    type={item.isPassword && "password"}
+                    type={
+                      (item.isPassword && "password") || (item.isDate && "date")
+                    }
                   />
                 </Grid>
               );

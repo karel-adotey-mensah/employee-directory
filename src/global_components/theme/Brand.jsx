@@ -10,11 +10,11 @@ const Brand = () => {
     backgroundSize: "cover",
   };
   return (
-    <Box py={2} style={brandImage}>
-      <Typography variant="h1" align="center">
+    <Box py={0} style={brandImage}>
+      <Typography style={{ color: "white" }} variant="h1" align="center">
         PEOPLE AND CULTURE
       </Typography>
-      <Typography variant="h6" align="center">
+      <Typography style={{ color: "white" }} variant="h6" align="center">
         <b>
           <Box component="span" mr={2}>
             E C H O

@@ -7,7 +7,7 @@ import Spinner from "../../global_components/utils/Spinner";
 
 const SmallCardGrid = (props) => {
   return (
-    <Box mx={12} mb={12}>
+    <Box mx={12} mb={12} mt={2}>
       <Paper variant="outlined">
         <Box py={4} px={6}>
           <Grid container spacing={4} justify="center" alignItems="center">

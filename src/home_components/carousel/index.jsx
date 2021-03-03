@@ -15,7 +15,7 @@ const HomeCarousel = () => {
   return (
     <Box width={768} height={512} mx="auto" mt={7} mb={2}>
       <Paper variant="outlined">
-        <Box p={0}>
+        <Box p={2}>
           <Carousel
             autoPlay
             infiniteLoop={true}

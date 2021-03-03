@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import Button from "@material-ui/core/button";
+import Box from "@material-ui/core/box";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import Form from "../../global_components/utils/Form";
@@ -135,19 +137,30 @@ const AccountDetails = () => {
   const buttonMeta = [
     { text: "Update Details", onClick: formik.handleSubmit },
     { text: "Change Password", onClick: changePassword },
-    { text: "Log Out", onClick: logOut },
   ];
 
   return (
     <div>
       {!isChangingPassword ? (
-        <Form
-          subheader="Update Your Information."
-          //   subheader="This information can be edited."
-          fieldMeta={fieldMeta}
-          buttonMeta={buttonMeta}
-          handleChange={formik.handleChange}
-        />
+        <div>
+          <Form
+            subheader="Update Your Information."
+            //   subheader="This information can be edited."
+            fieldMeta={fieldMeta}
+            buttonMeta={buttonMeta}
+            handleChange={formik.handleChange}
+          />
+          <Box mx="45%" mb={8}>
+            <Button
+              color="primary"
+              variant="contained"
+              onClick={logOut}
+              fullWidth
+            >
+              Log Out
+            </Button>
+          </Box>
+        </div>
       ) : (
         <PasswordChanger />
       )}
