@@ -9,6 +9,7 @@ import {
   Paper,
   TextField,
 } from "@material-ui/core";
+import ImageUploader from "./ImageUploader";
 
 const Form = (props) => {
   return (
@@ -22,6 +23,14 @@ const Form = (props) => {
         <Divider />
         <CardContent>
           <Grid container spacing={3} justify="center">
+            {props.uploadsImage && (
+              <Grid item md={7} xs={12}>
+                <ImageUploader
+                  imageUrl={props.imageUrl}
+                  uploadImage={props.uploadImage}
+                />
+              </Grid>
+            )}
             {props.fieldMeta.map((item) => {
               return (
                 <Grid item md={6} xs={12} key={item.name}>
@@ -37,7 +46,9 @@ const Form = (props) => {
                     error={item.error}
                     helperText={item.helperText}
                     type={
-                      (item.isPassword && "password") || (item.isDate && "date")
+                      (item.isPassword && "password") ||
+                      (item.isDate && "date") ||
+                      (item.isFile && "file")
                     }
                   />
                 </Grid>

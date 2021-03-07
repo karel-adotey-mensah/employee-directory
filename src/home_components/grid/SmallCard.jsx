@@ -41,7 +41,7 @@ const SmallCard = (props) => {
                   " " +
                   props.employeeData.lastName
                 }
-                src=""
+                src={`${props.employeeData.imageUrl}`}
                 className={classes.large}
               />
             </div>

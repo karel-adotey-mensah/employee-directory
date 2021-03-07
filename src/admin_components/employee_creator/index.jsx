@@ -1,12 +1,39 @@
 import React from "react";
+import { useState } from "react";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import Form from "../../global_components/utils/Form";
 const axios = require("axios");
 
 const EmployeeCreator = () => {
+  const token = localStorage.getItem("adminKey");
+  const [imageUrl, setImageUrl] = useState("");
+
+  const uploadImage = async (event) => {
+    const imageFile = event.target.files[0];
+    const toBase64 = (file) => {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = (error) => reject(error);
+      });
+    };
+    const base64Data = await toBase64(imageFile);
+    const imageUrl = await axios({
+      method: "post",
+      url: "http://localhost:4000/api/employees/img",
+      headers: {
+        Authorization: token,
+      },
+      data: { base64Data: base64Data },
+    });
+    const { secure_url } = imageUrl.data.data;
+    setImageUrl(secure_url);
+    console.log(imageUrl.data.data);
+  };
+
   const createEmployee = async (values) => {
-    const token = localStorage.getItem("adminKey");
     const {
       firstName,
       lastName,
@@ -30,7 +57,7 @@ const EmployeeCreator = () => {
         contractEnd: contractEnd,
         department: department,
         role: role,
-        imageUrl: "",
+        imageUrl: imageUrl,
       },
     });
 
@@ -46,6 +73,7 @@ const EmployeeCreator = () => {
     contractEnd: "2021-01-01",
     department: "",
     role: "",
+    imageUrl: "",
   };
   const validationSchema = yup.object({
     firstName: yup
@@ -81,6 +109,14 @@ const EmployeeCreator = () => {
     },
   });
   const fieldMeta = [
+    // {
+    //   isFile: true,
+    //   label: "Upload Image",
+    //   name: "imageUrl",
+    //   value: formik.values.imageUrl,
+    //   error: formik.touched.imageUrl && Boolean(formik.errors.imageUrl),
+    //   helperText: formik.touched.imageUrl && formik.errors.imageUrl,
+    // },
     {
       label: "First name",
       name: "firstName",
@@ -145,6 +181,9 @@ const EmployeeCreator = () => {
   return (
     <div>
       <Form
+        uploadsImage={true}
+        uploadImage={uploadImage}
+        imageUrl={imageUrl}
         fieldMeta={fieldMeta}
         buttonMeta={buttonMeta}
         handleChange={formik.handleChange}
