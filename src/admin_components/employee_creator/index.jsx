@@ -22,7 +22,7 @@ const EmployeeCreator = () => {
     const base64Data = await toBase64(imageFile);
     const imageUrl = await axios({
       method: "post",
-      url: "http://localhost:4000/api/employees/img",
+      url: "https://employee-directory-api667.herokuapp.com/api/employees/img",
       headers: {
         Authorization: token,
       },
@@ -46,7 +46,7 @@ const EmployeeCreator = () => {
     } = values;
     const newEmployee = await axios({
       method: "post",
-      url: "http://localhost:4000/api/employees",
+      url: "https://employee-directory-api667.herokuapp.com/api/employees",
       headers: { Authorization: token },
       data: {
         firstName: firstName,

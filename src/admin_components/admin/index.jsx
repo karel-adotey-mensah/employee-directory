@@ -22,7 +22,7 @@ const AccountDetails = () => {
   //   const getAdminData = async () => {
   //     const response = await axios({
   //       method: "get",
-  //       url: "http://localhost:4000/api/admin",
+  //       url: "https://employee-directory-api667.herokuapp.com/api/admin",
   //       headers: { Authorization: token },
   //     });
   // const { firstName, lastName, email } = response.data.data;
@@ -60,7 +60,7 @@ const AccountDetails = () => {
     const { firstName, lastName, email } = values;
     const updatedAdmin = await axios({
       method: "put",
-      url: "http://localhost:4000/api/admin",
+      url: "https://employee-directory-api667.herokuapp.com/api/admin",
       headers: { Authorization: token },
       data: {
         firstName: firstName,

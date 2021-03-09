@@ -34,12 +34,13 @@ const Login = () => {
     const { email, password } = userInput;
     const response = await axios({
       method: "post",
-      url: "http://localhost:4000/api/admin/login",
+      url: "https://employee-directory-api667.herokuapp.com/api/admin/login",
       data: {
         email: email.toLowerCase(),
         password: password,
       },
     });
+    console.log(response);
     if (response.data.data) {
       const {
         firstName,

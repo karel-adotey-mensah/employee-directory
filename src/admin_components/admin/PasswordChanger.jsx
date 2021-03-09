@@ -28,7 +28,7 @@ const PasswordChanger = () => {
 
     const passwordHasChanged = await axios({
       method: "put",
-      url: "http://localhost:4000/api/admin/password",
+      url: "https://employee-directory-api667.herokuapp.com/api/admin/password",
       headers: { Authorization: token },
       data: {
         password: password,

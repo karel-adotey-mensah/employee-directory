@@ -22,7 +22,7 @@ class Home extends React.Component {
   async componentDidMount() {
     const response = await axios({
       method: "get",
-      url: "http://localhost:4000/api/employees",
+      url: "https://employee-directory-api667.herokuapp.com/api/employees",
     });
     const { data } = response.data;
     this.setState(() => ({ employeeData: data, queriedEmployeeData: data }));

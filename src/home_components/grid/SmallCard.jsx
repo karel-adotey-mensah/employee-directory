@@ -36,11 +36,7 @@ const SmallCard = (props) => {
           <div>
             <div className={classes.root}>
               <Avatar
-                alt={
-                  props.employeeData.firstName +
-                  " " +
-                  props.employeeData.lastName
-                }
+                alt={`${props.employeeData.firstName} ${props.employeeData.lastName}`}
                 src={`${props.employeeData.imageUrl}`}
                 className={classes.large}
               />
